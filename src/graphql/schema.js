@@ -1,28 +1,18 @@
-'use strict';
+const typeDefs = `
+  type Contact {
+    id: ID!
+    first_name: String!
+    last_name: String!
+    phone: String!
+    email: String!
+    bio: String
+  }
+  type Query {
+    getContactById(id: ID!): Contact
+  }
+  schema {
+    query: Query
+  }
+`;
 
-const GraphQL = require('graphql');
-const {
-	GraphQLObjectType,
-	GraphQLSchema,
-} = GraphQL;
-
-
-// import the user query file we created
-const PostQuery = require('./queries/Post');
-
-
-// lets define our root query
-const RootQuery = new GraphQLObjectType({
-	name: 'RootQueryType',
-	description: 'This is the default root query provided by our application',
-	fields: {
-		posts: PostQuery.index(),
-	},
-});
-
-
-// export the schema
-module.exports = new GraphQLSchema({
-	query: RootQuery,
-});
-
+export default typeDefs;
