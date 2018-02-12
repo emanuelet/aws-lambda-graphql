@@ -12,10 +12,13 @@ const db = pgp(config);
 
 const resolvers = {
   Query: {
-    chefByRowId(root, {
-      rowId
+    contacts(root) {
+      return db.manyOrNone('SELECT * FROM contacts').then((response) => response);
+    },
+    contactsByRowId(root, {
+      id
     }) {
-      return db.one('SELECT * FROM contacts WHERE id = $1', [rowId]).then((response) => response);
+      return db.oneOrNone('SELECT * FROM contacts WHERE id = $1', [id]).then((response) => response);
     },
   },
 };

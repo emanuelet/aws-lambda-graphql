@@ -8,7 +8,8 @@ const typeDefs = `
     bio: String
   }
   type Query {
-    getContactById(id: ID!): Contact
+    contacts: [Contact]
+    contactsByRowId(id: ID!): Contact
   }
   schema {
     query: Query
