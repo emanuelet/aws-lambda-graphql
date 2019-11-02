@@ -27,7 +27,7 @@
     "express": "^4.17.1",
     "graphql": "^0.13.x",
     "graphql-tools": "^2.21.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "pg-promise": "^8.7.2"
   },
   "devDependencies": {
